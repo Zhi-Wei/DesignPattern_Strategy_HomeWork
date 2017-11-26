@@ -3,9 +3,9 @@
 namespace NineYi.Mall.BL.Interfaces
 {
     /// <summary>
-    /// 定義宅配服務的方法。
+    /// 定義費用計算策略的方法。
     /// </summary>
-    public interface IDeliveryService
+    public interface IFeeCalculationStrategy
     {
         /// <summary>
         /// 計算指定宅配項目的運費。
