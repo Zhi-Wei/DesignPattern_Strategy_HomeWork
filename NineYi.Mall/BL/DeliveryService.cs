@@ -32,6 +32,7 @@ namespace NineYi.Mall.BL
                 {
                     fee = 100 + weight * 10;
                 }
+
                 return fee;
             }
             else if (deliveryItem.DeliveryType == DeliveryTypeEnum.KTJ)
@@ -55,12 +56,16 @@ namespace NineYi.Mall.BL
             }
             else if (deliveryItem.DeliveryType == DeliveryTypeEnum.PostOffice)
             {
-                throw new NotImplementedException();
+                double feeByWeight = deliveryItem.ProductWeight * 10 + 80;
+                double feeByVolumetric =
+                    deliveryItem.ProductLength * deliveryItem.ProductWidth * deliveryItem.ProductHeight * 0.00001 * 110;
+
+                fee = Math.Max(feeByWeight, feeByVolumetric);
+
+                return fee;
             }
-            else
-            {
-                throw new ArgumentException("請檢查 deliveryItem.DeliveryType 參數");
-            }
+
+            throw new ArgumentException("請檢查 deliveryItem.DeliveryType 參數");
         }
     }
 }
