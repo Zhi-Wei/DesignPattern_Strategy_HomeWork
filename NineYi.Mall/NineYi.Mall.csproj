@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BE\Entities\DeliveryEntity.cs" />
-    <Compile Include="BE\DeliveryTypeEnum.cs" />
+    <Compile Include="BE\Enums\DeliveryTypeEnum.cs" />
     <Compile Include="BL\DeliveryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

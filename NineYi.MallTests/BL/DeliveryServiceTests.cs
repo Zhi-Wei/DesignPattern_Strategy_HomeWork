@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using FluentAssertions;
-using NineYi.Mall.BE;
 using NineYi.Mall.BE.Entities;
+using NineYi.Mall.BE.Enums;
 using Xunit;
 
 namespace NineYi.Mall.BL.Tests

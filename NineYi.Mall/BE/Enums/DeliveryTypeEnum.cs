@@ -1,4 +1,4 @@
-﻿namespace NineYi.Mall.BE
+﻿namespace NineYi.Mall.BE.Enums
 {
     /// <summary>
     /// 宅配類型

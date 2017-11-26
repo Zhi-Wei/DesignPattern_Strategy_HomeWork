@@ -1,6 +1,6 @@
 ﻿using System;
-using NineYi.Mall.BE;
 using NineYi.Mall.BE.Entities;
+using NineYi.Mall.BE.Enums;
 
 namespace NineYi.Mall.BL
 {

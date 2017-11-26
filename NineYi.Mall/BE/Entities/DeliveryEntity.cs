@@ -1,4 +1,6 @@
-﻿namespace NineYi.Mall.BE.Entities
+﻿using NineYi.Mall.BE.Enums;
+
+namespace NineYi.Mall.BE.Entities
 {
     /// <summary>
     /// 宅配資料
