@@ -1,23 +1,23 @@
 ﻿namespace NineYi.Mall.BE.Enums
 {
     /// <summary>
-    /// 宅配類型
+    /// 宅配類型。
     /// </summary>
     public enum DeliveryTypeEnum
     {
         /// <summary>
-        /// 黑貓
+        /// 黑貓。
         /// </summary>
-        TCat,
+        TCat = 0,
 
         /// <summary>
-        /// 大榮
+        /// 大榮。
         /// </summary>
-        KTJ,
+        KTJ = 1,
 
         /// <summary>
-        /// 郵局
+        /// 郵局。
         /// </summary>
-        PostOffice
+        PostOffice = 2
     }
 }
