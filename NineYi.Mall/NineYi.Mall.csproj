@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BE\DeliveryEntity.cs" />
+    <Compile Include="BE\Entities\DeliveryEntity.cs" />
     <Compile Include="BE\DeliveryTypeEnum.cs" />
     <Compile Include="BL\DeliveryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

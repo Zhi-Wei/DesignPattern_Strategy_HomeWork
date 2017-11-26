@@ -1,4 +1,4 @@
-﻿namespace NineYi.Mall.BE
+﻿namespace NineYi.Mall.BE.Entities
 {
     /// <summary>
     /// 宅配資料

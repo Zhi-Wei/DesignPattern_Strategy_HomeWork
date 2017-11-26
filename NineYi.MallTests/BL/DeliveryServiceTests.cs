@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using FluentAssertions;
 using NineYi.Mall.BE;
+using NineYi.Mall.BE.Entities;
 using Xunit;
 
 namespace NineYi.Mall.BL.Tests
