@@ -36,7 +36,7 @@ namespace NineYi.Mall.BL.Strategies
             };
 
             double fee;
-            double size = dimensions.Sum();
+            double size = dimensions.Aggregate((current, next) => current * next);
 
             if (dimensions.Any(x => x > 50))
             {
