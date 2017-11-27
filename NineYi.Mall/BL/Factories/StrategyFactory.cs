@@ -27,12 +27,12 @@ namespace NineYi.Mall.BL.Factories
         /// </summary>
         /// <param name="deliveryType">宅配類型。</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentException">deliveryType</exception>
+        /// <exception cref="ArgumentException">請檢查 deliveryType 參數。 - deliveryType</exception>
         public static IFeeCalculationStrategy CreateStrategy(DeliveryTypeEnum deliveryType)
         {
             if (_registry.TryGetValue(deliveryType, out var strategy) == false)
             {
-                throw new ArgumentException(nameof(deliveryType));
+                throw new ArgumentException($"請檢查 {nameof(deliveryType)} 參數。", nameof(deliveryType));
             }
 
             return strategy;
