@@ -45,6 +45,7 @@
     <Compile Include="BL\DeliveryService.cs" />
     <Compile Include="BL\Interfaces\IFeeCalculationStrategy.cs" />
     <Compile Include="BL\Strategies\KtjStrategy.cs" />
+    <Compile Include="BL\Strategies\PostOfficeStrategy.cs" />
     <Compile Include="BL\Strategies\TCatStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
