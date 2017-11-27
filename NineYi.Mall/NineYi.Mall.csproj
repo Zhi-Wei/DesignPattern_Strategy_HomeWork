@@ -43,15 +43,14 @@
     <Compile Include="BE\Entities\DeliveryEntity.cs" />
     <Compile Include="BE\Enums\DeliveryTypeEnum.cs" />
     <Compile Include="BL\DeliveryService.cs" />
+    <Compile Include="BL\Interfaces\IDeliveryService.cs" />
     <Compile Include="BL\Strategies\Interfaces\IFeeCalculationStrategy.cs" />
     <Compile Include="BL\Strategies\KtjStrategy.cs" />
     <Compile Include="BL\Strategies\PostOfficeStrategy.cs" />
     <Compile Include="BL\Strategies\TCatStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BL\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
