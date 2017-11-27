@@ -43,6 +43,7 @@
     <Compile Include="BE\Entities\DeliveryEntity.cs" />
     <Compile Include="BE\Enums\DeliveryTypeEnum.cs" />
     <Compile Include="BL\DeliveryService.cs" />
+    <Compile Include="BL\DeliveryServiceByDelegate.cs" />
     <Compile Include="BL\Factories\StrategyFactory.cs" />
     <Compile Include="BL\Interfaces\IDeliveryService.cs" />
     <Compile Include="BL\Strategies\Interfaces\IFeeCalculationStrategy.cs" />
