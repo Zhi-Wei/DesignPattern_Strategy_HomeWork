@@ -1,6 +1,6 @@
 ﻿using NineYi.Mall.BE.Entities;
 
-namespace NineYi.Mall.BL.Interfaces
+namespace NineYi.Mall.BL.Strategies.Interfaces
 {
     /// <summary>
     /// 定義費用計算策略的方法。

@@ -1,14 +1,14 @@
 ﻿using System;
 using NineYi.Mall.BE.Entities;
 using NineYi.Mall.BE.Enums;
-using NineYi.Mall.BL.Interfaces;
+using NineYi.Mall.BL.Strategies.Interfaces;
 
 namespace NineYi.Mall.BL.Strategies
 {
     /// <summary>
     /// 郵局運費計算策略。
     /// </summary>
-    /// <seealso cref="NineYi.Mall.BL.Interfaces.IFeeCalculationStrategy" />
+    /// <seealso cref="NineYi.Mall.BL.Strategies.Interfaces.IFeeCalculationStrategy" />
     public class PostOfficeStrategy : IFeeCalculationStrategy
     {
         /// <summary>
