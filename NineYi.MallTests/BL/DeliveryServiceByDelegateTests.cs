@@ -229,10 +229,34 @@ namespace NineYi.Mall.BL.Tests
         [Fact]
         [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "CalculateTCatShippingFee")]
+        public void CalculateTCatShippingFee_當傳入參數DeliveryType不為TCat時_應拋出ArgumentException的例外狀況()
+        {
+            // Arrange
+            var deliveryItem = new DeliveryEntity()
+            {
+                ProductLength = 30,
+                ProductWidth = 40,
+                ProductHeight = 50,
+                ProductWeight = 25,
+                DeliveryType = (DeliveryTypeEnum)99
+            };
+            var message = $"請檢查 deliveryItem 參數。{Environment.NewLine}參數名稱: deliveryItem";
+            var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
+
+            // Act
+            Action action = () => sut.InvokeStatic("CalculateTCatShippingFee", deliveryItem);
+
+            // Assert
+            action.ShouldThrow<ArgumentException>().And.Message.Should().Be(message);
+        }
+
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
+        [Trait(nameof(DeliveryServiceByDelegate), "CalculateTCatShippingFee")]
         public void CalculateTCatShippingFee_當傳入參數DeliveryType為TCat且ProductWeight大於20時_應回傳400的運費()
         {
             // Arrange
-            DeliveryEntity deliveryItem = new DeliveryEntity()
+            var deliveryItem = new DeliveryEntity()
             {
                 ProductLength = 30,
                 ProductWidth = 40,
@@ -250,6 +274,123 @@ namespace NineYi.Mall.BL.Tests
             actual.Should().Be(expected);
         }
 
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
+        [Trait(nameof(DeliveryServiceByDelegate), "CalculateTCatShippingFee")]
+        public void CalculateTCatShippingFee_當傳入參數DeliveryType為TCat且ProductWeight小於20時_應回傳相對的運費()
+        {
+            // Arrange
+            var deliveryItem = new DeliveryEntity()
+            {
+                ProductLength = 60,
+                ProductWidth = 60,
+                ProductHeight = 80,
+                ProductWeight = 15,
+                DeliveryType = DeliveryTypeEnum.TCat
+            };
+            double expected = 250;
+            var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
+
+            // Act
+            double actual = (double)sut.InvokeStatic("CalculateTCatShippingFee", deliveryItem);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
         #endregion -- CalculateTCatShippingFee --
+
+        #region -- CalculateKtjShippingFee --
+
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
+        [Trait(nameof(DeliveryServiceByDelegate), "CalculateKtjShippingFee")]
+        public void CalculateKtjShippingFee_當傳入參數deliveryItem為Null時_應拋出ArgumentException的例外狀況()
+        {
+            // Arrange
+            DeliveryEntity deliveryItem = null;
+            var message = $"請檢查 deliveryItem 參數。{Environment.NewLine}參數名稱: deliveryItem";
+            var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
+
+            // Act
+            Action action = () => sut.InvokeStatic("CalculateKtjShippingFee", deliveryItem);
+
+            // Assert
+            action.ShouldThrow<ArgumentException>().And.Message.Should().Be(message);
+        }
+
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
+        [Trait(nameof(DeliveryServiceByDelegate), "CalculateKtjShippingFee")]
+        public void CalculateKtjShippingFee_當傳入參數DeliveryType不為KTJ時_應拋出ArgumentException的例外狀況()
+        {
+            // Arrange
+            var deliveryItem = new DeliveryEntity()
+            {
+                ProductLength = 30,
+                ProductWidth = 40,
+                ProductHeight = 50,
+                ProductWeight = 25,
+                DeliveryType = (DeliveryTypeEnum)99
+            };
+            var message = $"請檢查 deliveryItem 參數。{Environment.NewLine}參數名稱: deliveryItem";
+            var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
+
+            // Act
+            Action action = () => sut.InvokeStatic("CalculateKtjShippingFee", deliveryItem);
+
+            // Assert
+            action.ShouldThrow<ArgumentException>().And.Message.Should().Be(message);
+        }
+
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
+        [Trait(nameof(DeliveryServiceByDelegate), "CalculateKtjShippingFee")]
+        public void CalculateKtjShippingFee_當傳入參數DeliveryType為KTJ且長寬高皆小於50時_應回傳相對的運費()
+        {
+            // Arrange
+            var deliveryItem = new DeliveryEntity()
+            {
+                ProductLength = 30,
+                ProductWidth = 40,
+                ProductHeight = 50,
+                ProductWeight = 25,
+                DeliveryType = DeliveryTypeEnum.KTJ
+            };
+            double expected = 72.000000000000014;
+            var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
+
+            // Act
+            double actual = (double)sut.InvokeStatic("CalculateKtjShippingFee", deliveryItem);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
+        [Trait(nameof(DeliveryServiceByDelegate), "CalculateKtjShippingFee")]
+        public void CalculateKtjShippingFee_當傳入參數DeliveryType為KTJ且長寬高皆大於50時_應回傳相對的運費()
+        {
+            // Arrange
+            var deliveryItem = new DeliveryEntity()
+            {
+                ProductLength = 60,
+                ProductWidth = 60,
+                ProductHeight = 80,
+                ProductWeight = 15,
+                DeliveryType = DeliveryTypeEnum.KTJ
+            };
+            double expected = 366.8;
+            var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
+
+            // Act
+            double actual = (double)sut.InvokeStatic("CalculateKtjShippingFee", deliveryItem);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        #endregion -- CalculateKtjShippingFee --
     }
 }
