@@ -3,6 +3,7 @@ using FluentAssertions;
 using NineYi.Mall.BE.Entities;
 using NineYi.Mall.BE.Enums;
 using NineYi.Mall.BL;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
 
 namespace NineYi.MallTests.BL
@@ -21,6 +22,7 @@ namespace NineYi.MallTests.BL
         #region -- Calculate --
 
         [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
         public void Calculate_當傳入參數deliveryItem為Null時_應拋出ArgumentNullException的例外狀況()
         {
@@ -37,6 +39,7 @@ namespace NineYi.MallTests.BL
         }
 
         [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
         public void Calculate_當傳入參數DeliveryType為未定義宅配策略的值時_應拋出ArgumentException的例外狀況()
         {
@@ -60,6 +63,7 @@ namespace NineYi.MallTests.BL
         }
 
         [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
         public void Calculate_當傳入參數DeliveryType為TCat且ProductWeight大於20時_應回傳400的運費()
         {
@@ -83,6 +87,7 @@ namespace NineYi.MallTests.BL
         }
 
         [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
         public void Calculate_當傳入參數DeliveryType為TCat且ProductWeight小於20時_應回傳相對的運費()
         {
@@ -106,6 +111,7 @@ namespace NineYi.MallTests.BL
         }
 
         [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
         public void Calculate_當傳入參數DeliveryType為KTJ且長寬高皆小於50時_應回傳相對的運費()
         {
@@ -129,6 +135,7 @@ namespace NineYi.MallTests.BL
         }
 
         [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
         public void Calculate_當傳入參數DeliveryType為KTJ且長寬高皆大於50時_應回傳相對的運費()
         {
@@ -152,6 +159,7 @@ namespace NineYi.MallTests.BL
         }
 
         [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
         public void Calculate_當傳入參數DeliveryType為PostOffice且依重量計算的運費大於依材積計算的運費時_應回傳依重量計算的運費()
         {
@@ -175,6 +183,7 @@ namespace NineYi.MallTests.BL
         }
 
         [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
         [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
         public void Calculate_當傳入參數DeliveryType為PostOffice且依重量計算的運費小於依材積計算的運費時_應回傳依材積計算的運費()
         {
@@ -198,5 +207,50 @@ namespace NineYi.MallTests.BL
         }
 
         #endregion -- Calculate --
+
+        #region -- CalculateTCatShippingFee --
+
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
+        [Trait(nameof(DeliveryServiceByDelegate), "CalculateTCatShippingFee")]
+        public void CalculateTCatShippingFee_當傳入參數deliveryItem為Null時_應拋出ArgumentException的例外狀況()
+        {
+            // Arrange
+            DeliveryEntity deliveryItem = null;
+            var message = $"請檢查 deliveryItem 參數。{Environment.NewLine}參數名稱: deliveryItem";
+            var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
+
+            // Act
+            Action action = () => sut.InvokeStatic("CalculateTCatShippingFee", deliveryItem);
+
+            // Assert
+            action.ShouldThrow<ArgumentException>().And.Message.Should().Be(message);
+        }
+
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "")]
+        [Trait(nameof(DeliveryServiceByDelegate), "CalculateTCatShippingFee")]
+        public void CalculateTCatShippingFee_當傳入參數DeliveryType為TCat且ProductWeight大於20時_應回傳400的運費()
+        {
+            // Arrange
+            DeliveryEntity deliveryItem = new DeliveryEntity()
+            {
+                ProductLength = 30,
+                ProductWidth = 40,
+                ProductHeight = 50,
+                ProductWeight = 25,
+                DeliveryType = DeliveryTypeEnum.TCat
+            };
+            double expected = 400;
+            var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
+
+            // Act
+            double actual = sut.InvokeStatic("CalculateTCatShippingFee", deliveryItem);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        #endregion -- CalculateTCatShippingFee --
     }
 }
