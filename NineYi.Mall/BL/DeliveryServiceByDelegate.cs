@@ -34,7 +34,7 @@ namespace NineYi.Mall.BL
         {
             if (deliveryItem?.DeliveryType != DeliveryTypeEnum.TCat)
             {
-                throw new ArgumentException($"請檢查 {nameof(deliveryItem)} 參數。");
+                throw new ArgumentException($"請檢查 {nameof(deliveryItem)} 參數。", nameof(deliveryItem));
             }
 
             double fee = deliveryItem.ProductWeight > 20
