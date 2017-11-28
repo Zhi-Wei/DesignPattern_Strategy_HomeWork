@@ -82,7 +82,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BL\DeliveryServiceByDelegateTests.cs" />
     <Compile Include="BL\DeliveryServiceTests.cs" />
+    <Compile Include="BL\Factories\StrategyFactoryTests.cs" />
+    <Compile Include="BL\Strategies\KtjStrategyTests.cs" />
+    <Compile Include="BL\Strategies\PostOfficeStrategyTests.cs" />
+    <Compile Include="BL\Strategies\TCatStrategyTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
