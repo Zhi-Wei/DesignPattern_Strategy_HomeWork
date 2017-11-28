@@ -54,7 +54,7 @@ namespace NineYi.Mall.BL
         {
             if (deliveryItem?.DeliveryType != DeliveryTypeEnum.KTJ)
             {
-                throw new ArgumentException($"請檢查 {nameof(deliveryItem)} 參數。");
+                throw new ArgumentException($"請檢查 {nameof(deliveryItem)} 參數。", nameof(deliveryItem));
             }
 
             var dimensions = new List<double>
