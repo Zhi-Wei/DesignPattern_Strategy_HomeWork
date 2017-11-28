@@ -23,7 +23,7 @@ namespace NineYi.Mall.BL.Strategies
         {
             if (deliveryItem?.DeliveryType != DeliveryTypeEnum.PostOffice)
             {
-                throw new ArgumentException($"請檢查 {nameof(deliveryItem)} 參數。");
+                throw new ArgumentException($"請檢查 {nameof(deliveryItem)} 參數。", nameof(deliveryItem));
             }
 
             double feeByWeight = deliveryItem.ProductWeight * 10 + 80;
