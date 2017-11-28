@@ -1,12 +1,11 @@
 ﻿using System;
 using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NineYi.Mall.BE.Entities;
 using NineYi.Mall.BE.Enums;
-using NineYi.Mall.BL;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
 
-namespace NineYi.MallTests.BL
+namespace NineYi.Mall.BL.Tests
 {
     public class DeliveryServiceByDelegateTests
     {
@@ -245,7 +244,7 @@ namespace NineYi.MallTests.BL
             var sut = new PrivateType(typeof(DeliveryServiceByDelegate));
 
             // Act
-            double actual = sut.InvokeStatic("CalculateTCatShippingFee", deliveryItem);
+            double actual = (double)sut.InvokeStatic("CalculateTCatShippingFee", deliveryItem);
 
             // Assert
             actual.Should().Be(expected);
