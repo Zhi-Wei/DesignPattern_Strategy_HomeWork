@@ -174,6 +174,29 @@ namespace NineYi.MallTests.BL
             actual.Should().Be(expected);
         }
 
+        [Fact]
+        [Trait(nameof(DeliveryServiceByDelegate), "Calculate")]
+        public void Calculate_當傳入參數DeliveryType為PostOffice且依重量計算的運費小於依材積計算的運費時_應回傳依材積計算的運費()
+        {
+            // Arrange
+            var deliveryItem = new DeliveryEntity()
+            {
+                ProductLength = 60,
+                ProductWidth = 60,
+                ProductHeight = 80,
+                ProductWeight = 15,
+                DeliveryType = DeliveryTypeEnum.PostOffice
+            };
+            double expected = 316.8;
+            var sut = this.GetSystemUnderTestInstance();
+
+            // Act
+            double actual = sut.Calculate(deliveryItem);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
         #endregion -- Calculate --
     }
 }
