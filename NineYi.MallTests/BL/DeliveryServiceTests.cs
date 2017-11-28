@@ -4,7 +4,7 @@ using NineYi.Mall.BE.Entities;
 using NineYi.Mall.BE.Enums;
 using Xunit;
 
-namespace NineYi.Mall.BL.Tests
+namespace NineYi.MallTests.BL
 {
     public class DeliveryServiceTests
     {
