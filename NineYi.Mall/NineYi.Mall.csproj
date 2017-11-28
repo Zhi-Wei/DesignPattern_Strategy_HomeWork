@@ -40,9 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BE\DeliveryEntity.cs" />
-    <Compile Include="BE\DeliveryTypeEnum.cs" />
+    <Compile Include="BE\Entities\DeliveryEntity.cs" />
+    <Compile Include="BE\Enums\DeliveryTypeEnum.cs" />
     <Compile Include="BL\DeliveryService.cs" />
+    <Compile Include="BL\DeliveryServiceByDelegate.cs" />
+    <Compile Include="BL\Factories\StrategyFactory.cs" />
+    <Compile Include="BL\Interfaces\IDeliveryService.cs" />
+    <Compile Include="BL\Strategies\Interfaces\IFeeCalculationStrategy.cs" />
+    <Compile Include="BL\Strategies\KtjStrategy.cs" />
+    <Compile Include="BL\Strategies\PostOfficeStrategy.cs" />
+    <Compile Include="BL\Strategies\TCatStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
